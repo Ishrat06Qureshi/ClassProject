@@ -1,0 +1,141 @@
+WEBVTT
+Kind: captions
+Language: pt-BR
+
+00:00:00.000 --> 00:00:02.635
+A esta altura,
+você deve estar bem confortável
+
+00:00:02.669 --> 00:00:05.138
+em lidar com o estado local
+dentro dos componentes.
+
+00:00:05.171 --> 00:00:07.874
+Contudo, uma coisa
+da qual ainda não falamos
+
+00:00:07.907 --> 00:00:11.344
+é como buscar e gerenciar dados
+que estão numa base de dados.
+
+00:00:11.378 --> 00:00:14.114
+Sua primeira ideia pode ser
+fazer uma solicitação Ajax
+
+00:00:14.147 --> 00:00:15.682
+dentro do método
+de renderização.
+
+00:00:15.715 --> 00:00:17.817
+Infelizmente,
+não é uma boa ideia,
+
+00:00:17.851 --> 00:00:20.620
+porque o método de renderização
+não pode ter efeitos colaterais.
+
+00:00:20.653 --> 00:00:24.657
+Não deve fazer solicitação Ajax
+ou algo de natureza assíncrona.
+
+00:00:24.691 --> 00:00:28.528
+Ele só deve receber props
+e enviar descrições da IU.
+
+00:00:28.561 --> 00:00:31.831
+Sem as solicitações Ajax
+no método de renderização,
+
+00:00:31.865 --> 00:00:33.500
+onde devemos fazê-las?
+
+00:00:33.533 --> 00:00:37.270
+Isso introduz o conceito
+de ciclo de vida no React.
+
+00:00:37.303 --> 00:00:40.740
+Eles são métodos especiais
+que cada componente tem
+
+00:00:40.774 --> 00:00:43.309
+e que nos permitem executar
+um comportamento customizado
+
+00:00:43.343 --> 00:00:45.612
+durante certo tempo
+da vida do componente.
+
+00:00:45.645 --> 00:00:49.315
+Ou seja, quando um componente
+está sendo criado e inserido na DOM,
+
+00:00:49.349 --> 00:00:51.084
+quando um componente recebe
+novos props,
+
+00:00:51.117 --> 00:00:52.786
+entre outros.
+
+00:00:52.819 --> 00:00:56.125
+O React tem diferentes
+eventos de ciclo de vida,
+
+00:00:56.159 --> 00:00:59.833
+mas, por enquanto,
+só falaremos dos mais comuns.
+
+00:00:59.858 --> 00:01:02.595
+O primeiro é
+o componentDidMount.
+
+00:01:02.629 --> 00:01:07.233
+Ele é chamado após o componente
+ser inserido no DOM.
+
+00:01:07.267 --> 00:01:09.202
+Depois vem
+o componentWillUnmount,
+
+00:01:09.235 --> 00:01:12.806
+chamado antes de um componente
+ser removido da DOM,
+
+00:01:12.839 --> 00:01:15.845
+e, por último,
+o getDerivedStateFromProps,
+
+00:01:15.879 --> 00:01:19.746
+que é chamado quando o componente
+está para receber novos props.
+
+00:01:20.108 --> 00:01:22.849
+Sei que é muita informação
+para se lembrar.
+
+00:01:22.882 --> 00:01:25.785
+Não se sobrecarregue pensando
+que tem que memorizar todos.
+
+00:01:25.819 --> 00:01:28.154
+Apenas tente lembrar
+que eles existem
+
+00:01:28.188 --> 00:01:30.924
+e olhe a documentação
+quando precisar deles.
+
+00:01:30.957 --> 00:01:33.593
+Ainda temos que responder
+a pergunta inicial.
+
+00:01:33.626 --> 00:01:38.264
+Para que ele busque dados externos
+de um API, como devemos fazer?
+
+00:01:38.298 --> 00:01:39.933
+Esse é o caso perfeito
+
+00:01:39.966 --> 00:01:42.502
+para usar o ciclo de vida
+do componentDidMount.
+
